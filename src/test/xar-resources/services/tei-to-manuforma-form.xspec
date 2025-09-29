@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description
+  xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
+  xmlns:tt2m="http://test.tei-to-manuforma-form"
+  run-as="external"
+  stylesheet="../../../main/xar-resources/services/tei-to-manuforma-form.xslt">
+  
+  <!--
+    Tests for converting TEI into a TEI like format for a manuForma form
+    @author Adam Retter
+  -->
+  
+  <x:scenario label="Given a TEI Element">
+    
+    <x:scenario label="When it contains attributes">
+      
+      <x:context>
+        <tei:TEI xml:id="xml-id1" attr1="value1" class="some-class" attr2="value2">
+          <content/>
+        </tei:TEI>
+      </x:context>
+      
+      <x:expect label="Then drop all attributes">
+        <tei:TEI>
+          <content/>
+        </tei:TEI>
+      </x:expect>
+
+    </x:scenario>
+    
+  </x:scenario>
+
+</x:description>

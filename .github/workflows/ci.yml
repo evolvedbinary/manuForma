@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        jdk: [8,11,17,21]
+        jdk: [11,25]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
           java-version: ${{ matrix.jdk }}
       - run: mvn clean package
       - name: Persist built XAR
-        if: matrix.os == 'ubuntu-latest' && matrix.jdk == '8'
+        if: matrix.os == 'ubuntu-latest' && matrix.jdk == '11'
         uses: actions/upload-artifact@v4
         with:
           name: xar
@@ -28,7 +28,7 @@ jobs:
           retention-days: 1
           overwrite: true
       - name: Persist built ci-resources
-        if: matrix.os == 'ubuntu-latest' && matrix.jdk == '8'
+        if: matrix.os == 'ubuntu-latest' && matrix.jdk == '11'
         uses: actions/upload-artifact@v4
         with:
           name: ci-resources

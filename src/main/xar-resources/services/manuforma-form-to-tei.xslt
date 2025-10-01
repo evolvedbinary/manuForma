@@ -94,7 +94,7 @@
     </xsl:call-template>
   </xsl:template>
   
-  <xsl:template match="tei:bibl[parent::tei:place/parent::tei:listPlace or parent::tei:person/parent::tei:listPerson or parent::tei:note/parent::tei:bibl/parent::tei:body or parent::tei:bibl/parent::tei:bibl/parent::tei:body]">
+  <xsl:template match="tei:bibl[parent::tei:place/parent::tei:listPlace or parent::tei:person/parent::tei:listPerson or parent::tei:bibl/parent::tei:bibl/parent::tei:body]">
     <xsl:copy>
       <xsl:apply-templates select="@*[name(.) ne 'source']"/>
       <!-- xsl:attribute name="xml:id" select="concat('bibl-', count(preceding-sibling::tei:bibl) + 1)"/ -->
